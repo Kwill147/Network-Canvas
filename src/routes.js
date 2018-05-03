@@ -10,8 +10,9 @@ import { connect } from 'react-redux';
 import {
   LoadParamsRoute,
   ProtocolScreen,
-  SetupScreen,
 } from './containers';
+
+import { ProtocolImport, SetupScreen } from './containers/Setup';
 
 function mapStateToProps(state) {
   return {
@@ -46,6 +47,7 @@ export default () => (
     <SetupRequiredRoute exact path="/protocol" component={ProtocolScreen} />
     <LoadParamsRoute path="/protocol/:protocolType/:protocolId/:stageIndex" component={ProtocolScreen} />
     <LoadParamsRoute path="/protocol/:protocolType/:protocolId" component={ProtocolScreen} />
+    <LoadParamsRoute path="/protocol-import" component={ProtocolImport} />
     <LoadParamsRoute path="/reset" shouldReset component={Redirect} to={{ pathname: '/setup' }} />
     <Route path="/setup" component={SetupScreen} />
     <Redirect to={{ pathname: '/setup' }} />
